@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    function hello() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','/hello.json', true)
+        xhr.onload = function (){
+            console.log(this)
+            document.getElementById('app').innerHTML = this.responseText
+            var jsonObj = JSON.parse(this.responseText)
+            console.log(jsonObj.count);
+            }
+        xhr.send();
+       }
+    </script>
+</head>
+<body>
+<h1>hi</h1>
+<div id="app"></div>
+<button onclick="hello()">hi</button>
+</body>
+</html>
